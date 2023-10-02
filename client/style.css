@@ -1,0 +1,36 @@
+*root {
+  margin: 0;
+  padding: 0;
+}
+
+.image-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  font-size: 25px;
+  width: 250px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-upload-input {
+  padding: 10px;
+  outline: none;
+  width: 100%;
+  font-size: 17px !important;
+  position: absolute;
+}
+
+.image-upload-input:focus {
+  border: 2px solid rgb(0, 157, 255);
+}
+
+.image-upload-icon {
+  position: absolute;
+  right: 0;
+  color: rgb(123, 203, 252);
+  font-weight: 100;
+  cursor: pointer;
+}
