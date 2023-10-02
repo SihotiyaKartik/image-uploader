@@ -9,14 +9,14 @@
   align-items: center;
   margin-top: 10vh;
   font-size: 25px;
-  width: 250px;
+  width: 300px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
 }
 
 .image-upload-input {
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
   outline: none;
   width: 100%;
   font-size: 17px !important;
@@ -29,8 +29,21 @@
 
 .image-upload-icon {
   position: absolute;
-  right: 0;
+  right: -15px;
   color: rgb(123, 203, 252);
   font-weight: 100;
   cursor: pointer;
+}
+
+.preview-image {
+  display: none;
+  margin-top: 10vh;
+  font-size: 20px;
+  text-align: center;
+}
+
+.preview-image img {
+  border: 1px solid black;
+  height: 300px;
+  width: 300px;
 }
