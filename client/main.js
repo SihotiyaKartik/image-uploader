@@ -1,6 +1,7 @@
 function openFileInput() {
   const fileInput = document.createElement("input")
   fileInput.type = "file"
+  fileInput.accept = "image/*"
   fileInput.style.display = "none"
   document.body.appendChild(fileInput)
   fileInput.click()
