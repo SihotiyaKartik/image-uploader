@@ -11,7 +11,7 @@ const imagesRoute = require("./routes/images")
 app.use(express.json())
 app.use(
   cors({
-    origin: "http://127.0.0.1:5500"
+    origin: "*"
   })
 )
 app.use("/image", imagesRoute)
