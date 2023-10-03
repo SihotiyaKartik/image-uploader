@@ -38,12 +38,17 @@ function handleImageUpload() {
   const imageData = new FormData()
   imageData.append("file", imageFile)
 
-  fetch("http://localhost:3000/image/upload", {
+  fetch("https://image-store-service.onrender.com/image/upload", {
     method: "POST",
     body: imageData
   })
     .then((res) => {
-      console.log(res)
+      return res.json()
+    })
+    .then((data) => {
+      if (!data?.error) {
+        alert(data?.url + " " + data?.message)
+      }
     })
     .catch((err) => {
       console.log(err)
