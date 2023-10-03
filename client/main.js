@@ -1,3 +1,5 @@
+var imageFile = {}
+
 function openFileInput() {
   const fileInput = document.createElement("input")
   fileInput.type = "file"
@@ -18,15 +20,32 @@ function handlePreviewOfImage(fileInput) {
   previewImage = document.querySelector(".preview-image")
   imagePreview = document.querySelector(".image-preview")
   file = fileInput.files[0]
+  imageFile = file
 
   if (file) {
     const fileReader = new FileReader()
     fileReader.onload = function (e) {
-      imagePreview.src = e.target.result
+      imagePreview.src = URL.createObjectURL(file)
       previewImage.style.display = "block"
     }
-    fileReader.readAsDataURL(file)
+    fileReader.readAsArrayBuffer(file)
   } else {
     previewImage.style.display = "none"
   }
+}
+
+function handleImageUpload() {
+  const imageData = new FormData()
+  imageData.append("file", imageFile)
+
+  fetch("http://localhost:3000/image/upload", {
+    method: "POST",
+    body: imageData
+  })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
