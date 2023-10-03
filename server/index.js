@@ -1,12 +1,19 @@
 const express = require("express")
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
+const cors = require("cors")
 
 dotenv.config()
 const app = express()
 
 const imagesRoute = require("./routes/images")
 
+app.use(express.json())
+app.use(
+  cors({
+    origin: "http://127.0.0.1:5500"
+  })
+)
 app.use("/image", imagesRoute)
 
 mongoose
