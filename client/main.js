@@ -1,4 +1,5 @@
 var imageFile = {}
+const urlBox = document.querySelector(".dialog-box")
 
 function openFileInput() {
   const fileInput = document.createElement("input")
@@ -9,6 +10,7 @@ function openFileInput() {
   fileInput.click()
 
   fileInput.addEventListener("change", () => {
+    urlBox.style.display = "none"
     const fileInputName = document.querySelector(".image-upload-input")
     fileInputName.value = fileInput.value.split("\\").pop()
     handlePreviewOfImage(fileInput)
@@ -47,10 +49,37 @@ function handleImageUpload() {
     })
     .then((data) => {
       if (!data?.error) {
-        alert(data?.url + " " + data?.message)
+        handleShowcaseOfUrl(data?.url)
+      } else {
+        handleShowcaseError(data?.message)
       }
     })
     .catch((err) => {
       console.log(err)
     })
+}
+
+function handleShowcaseOfUrl(url) {
+  const urlP = document.querySelector(".dialog-box-text")
+  const icon1 = document.querySelector(".correct-icon")
+  const icon2 = document.querySelector(".wrong-icon")
+  urlBox.style.display = "block"
+  icon2.style.display = "none"
+  icon1.style.display = "block"
+  urlP.textContent = url
+}
+
+function handleShowcaseError(message) {
+  const urlP = document.querySelector(".dialog-box-text")
+  const icon1 = document.querySelector(".correct-icon")
+  const icon2 = document.querySelector(".wrong-icon")
+  urlBox.style.display = "block"
+  icon1.style.display = "none"
+  icon2.style.display = "block"
+  urlBox.style.display = "block"
+  urlP.textContent = message
+}
+
+function handleCloseDBox() {
+  urlBox.style.display = "none"
 }

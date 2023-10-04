@@ -57,3 +57,17 @@
   height: 300px;
   width: 300px;
 }
+
+.dialog-box {
+  height: 200px;
+  width: 400px;
+  background-color: rgb(248, 246, 246);
+  position: fixed;
+  left: calc(50vw - 200px);
+  top: 30vh;
+  z-index: 10;
+  border-radius: 5px;
+  display: none;
+  padding: 10px;
+  text-align: center;
+}
