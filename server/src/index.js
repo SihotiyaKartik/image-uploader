@@ -3,6 +3,8 @@ const dotenv = require("dotenv")
 const mongoose = require("mongoose")
 const cors = require("cors")
 
+// Comment 1
+
 dotenv.config()
 const app = express()
 
