@@ -1,6 +1,8 @@
 var imageFile = {}
 const urlBox = document.querySelector(".dialog-box")
 
+// Comment
+
 function openFileInput() {
   const fileInput = document.createElement("input")
   fileInput.type = "file"
